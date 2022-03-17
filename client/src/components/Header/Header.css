@@ -1,0 +1,108 @@
+.header{
+    display: flex;
+    height: 10vh;
+    background-color: #24292F;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 0.9em;
+    padding-right: 0.9em;
+    gap: 30px;
+}
+
+.menu-icon{
+    font-size: 45px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.input-holder{
+    width: 100%;
+    position: relative;
+}
+
+.input-header{
+    height: 35px;
+    width: 100%;
+    font-size: 15px;
+    padding-left:0.8em ;
+    background: none;
+    border-radius: 5px;
+    outline: none;
+    color: #fff;
+    border: 1px solid #57606A;
+}
+
+.search-results{
+    display: none;
+    position: absolute;
+    width: 100%;
+    font-size: 15px;
+    margin-top: 0.5em;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #fff;
+    border: 1px solid #57606A;
+    
+}
+
+.search-results p{
+    cursor: pointer;
+    padding: 0.5em;
+    font-weight: 600;
+    color:#24292F;
+}
+
+.search-results p:hover{
+    background-color: #0969DA;
+    color: #fff;
+}
+
+.userInfo-holder{
+    display: flex;
+    align-items: center;
+}
+
+.userInfo{
+    display: none;
+    color: #fff;
+    font-weight: 600;
+}
+
+.userInfo p{
+    cursor: pointer;
+}
+.userImg{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.userInfo-holder span{
+    display: none;
+}
+
+@media screen and (min-width: 800px){
+
+    .userInfo{
+        display: flex;
+        flex-direction: column;
+        margin-left:0.6em ;
+    }
+}
+
+@media screen and (min-width: 1024px){
+
+    .menu-icon{
+        font-size: 35px;
+    }
+    .userInfo{
+        display: flex;
+        flex-direction: column;
+        margin-left:0.6em ;
+    }
+
+    .input-holder{
+        width: 50%;
+    }
+}

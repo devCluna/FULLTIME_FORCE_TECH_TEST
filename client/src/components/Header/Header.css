@@ -82,12 +82,24 @@
     display: none;
 }
 
+.menu-logo{
+    display: none;
+}
+
 @media screen and (min-width: 800px){
 
     .userInfo{
         display: flex;
         flex-direction: column;
         margin-left:0.6em ;
+    }
+
+    .menu-bar{
+        display: none;
+    }
+
+    .menu-logo{
+        display: block;
     }
 }
 
@@ -105,4 +117,5 @@
     .input-holder{
         width: 50%;
     }
+
 }

@@ -16,12 +16,14 @@
 }
 
 .support-tag{
+    display: none;
     font-weight: 600;
     color: #3d3d3d;
 }
 
 .supporter{
    display: flex;
+   width: 80px;
    justify-content: space-evenly;
    height: 45px;
    align-items: center;
@@ -33,4 +35,10 @@
 }
 .logo2{
    width: 40px;
+}
+
+@media screen and (min-width: 500px){
+    .support-tag{
+        display: block;
+    }
 }

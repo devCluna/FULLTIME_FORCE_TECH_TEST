@@ -1,7 +1,6 @@
 import React from 'react'
 import {FaBars} from 'react-icons/fa'
 import './Header.css'
-import profileImg from '../../assets/profile-img-1.webp'
 
 const Header = () => {
   return (
@@ -15,7 +14,7 @@ const Header = () => {
             </div>
         </div>
         <div className="userInfo-holder">
-            <img className='userImg' src={profileImg} />
+            <img className='userImg' />
             <div className="userInfo"> 
                 <p>username</p>
                 <p>email</p>

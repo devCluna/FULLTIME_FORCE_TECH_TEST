@@ -1,11 +1,13 @@
 import React from 'react'
 import {FaBars} from 'react-icons/fa'
+import {SiGithub} from 'react-icons/si'
 import './Header.css'
 
 const Header = () => {
   return (
     <div className='header'>
-        <FaBars className='menu-icon'/>
+        <FaBars className='menu-icon menu-bar'/>
+        <SiGithub className='menu-icon menu-logo'/>
         <div className='input-holder'>
             <input className='input-header' placeholder="Search by username"/>
             <div className='search-results'>

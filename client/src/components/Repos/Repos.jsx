@@ -3,10 +3,12 @@ import './Repos.css'
 import {TiArrowSortedUp} from 'react-icons/ti'
 import {TiArrowSortedDown} from 'react-icons/ti'
 import axios from 'axios'
+import { useSelector } from 'react-redux'
 
 const Repos = () => {
+  const selectedRepo = useSelector(state => state.selectedRepo.selectedRepo)
+
   const selectorRef = useRef()
-  const [repo, setRepo] = useState({})
   const [toggleBranch, setToggleBranch] = useState(false)
   const [branches, setBranches] = useState([])
   const [commits, setCommits] = useState([])
@@ -34,10 +36,6 @@ const Repos = () => {
   }
 
   useEffect(()=>{
-    axios.get('https://api.github.com/repos/devCluna/FULLTIME_FORCE_TECH_TEST')
-    .then(item =>{
-      setRepo(item.data)
-    })
 
     axios.get('https://api.github.com/repos/devcluna/FULLTIME_FORCE_TECH_TEST/branches')
     .then(item =>{
@@ -55,21 +53,21 @@ const Repos = () => {
       if(e.target.className!== selectorRef.current.className){
           setToggleBranch(false)
       }
-  }
-  document.body.addEventListener('click', closeSelector);
-  return ()=>document.body.addEventListener('click', closeSelector);
+    }
+    document.body.addEventListener('click', closeSelector);
+    return ()=>document.body.addEventListener('click', closeSelector);
   },[])
 
   return (
     <div className="repos">
       <h3 className="section-repos-title">Selected Repo</h3>
       <div className="repos-item">
-        <a className="repo-title" href={repo.html_url} target="_blank">{repo.full_name}</a>
-        <span className="repo-description">{repo.description ? repo.description :'No description provided' }</span>
-        <span className='repo-date-label'>created at: <span className='repo-date'>{repo.created_at && getDate(new Date(repo.created_at))}</span></span>
-        <span className='repo-date-label'>updated at: <span className='repo-date'>{repo.updated_at && getDate(new Date(repo.updated_at))}</span></span>
+        <a className="repo-title" href={selectedRepo.html_url} target="_blank">{selectedRepo.full_name}</a>
+        <span className="repo-description">{selectedRepo.description ? selectedRepo.description :'No description provided' }</span>
+        <span className='repo-date-label'>created at: <span className='repo-date'>{selectedRepo.created_at && getDate(new Date(selectedRepo.created_at))}</span></span>
+        <span className='repo-date-label'>updated at: <span className='repo-date'>{selectedRepo.updated_at && getDate(new Date(selectedRepo.updated_at))}</span></span>
         <div className="techs-stacks">
-          {repo.topics?.map(topic=>(
+          {selectedRepo.topics?.map(topic=>(
             <span>{topic}</span>
           ))}
         </div>

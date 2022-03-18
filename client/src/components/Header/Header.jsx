@@ -2,6 +2,7 @@ import React from 'react'
 import {FaBars} from 'react-icons/fa'
 import {SiGithub} from 'react-icons/si'
 import './Header.css'
+import profileImg from '../../assets/profile.jpg'
 
 const Header = () => {
   return (
@@ -16,7 +17,7 @@ const Header = () => {
             </div>
         </div>
         <div className="userInfo-holder">
-            <img className='userImg' />
+            <img className='userImg' src={profileImg}/>
             <div className="userInfo"> 
                 <p>username</p>
                 <p>email</p>

@@ -10,7 +10,6 @@ const Sidebar = () => {
         axios.get("https://api.github.com/users/devCluna/repos")
             .then(item =>{
                 setRepos(item.data)
-
             })
     },[])
 

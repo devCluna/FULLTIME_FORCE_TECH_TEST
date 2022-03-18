@@ -27,7 +27,7 @@
     width: 100%;
     padding: 0.5em;
     cursor: pointer;
-    
+    user-select: none;
 }
 
 .repo-icon{

@@ -106,7 +106,7 @@
 .commit-item{
     cursor: pointer;
     width: 100%;
-    padding: 0.2em 0.5em;
+    padding: 0.5em 0.8em;
     border-radius: 5px;
     border: 1px solid #D0D7DE;
 }
@@ -114,6 +114,7 @@
 .commit-details{
     display: flex;
     align-items: center;
+    margin-top: 0.4em;
 }
 
 .commit-author{

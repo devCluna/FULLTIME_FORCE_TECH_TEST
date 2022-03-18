@@ -31,7 +31,19 @@
 .repo-description{
     font-style: italic;
     color: #57606A;
+    font-size: 14px;
+}
 
+.repo-date-label{
+    color:#0969DA;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.repo-date{
+    color: #57606A;
+    font-style: italic;
+    font-size: 14px;
 }
 
 .techs-stacks{

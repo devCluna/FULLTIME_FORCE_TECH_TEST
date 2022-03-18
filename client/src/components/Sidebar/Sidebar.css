@@ -16,7 +16,7 @@
 }
 
 .repo-holder{
-    height: 93%;
+    height: 92.5%;
     overflow-y: auto;
 }
 
@@ -39,8 +39,9 @@
 
 @media screen and (min-width: 800px){
     .sidebar{
+        display: block;
         position: static;
-        width: 150px;
+        width: 280px;
         height: 100%;
         border-right: 1px solid #9A9C9F;
     }

@@ -113,6 +113,11 @@
 
 .commit-description{
     font-style: italic;
+    color: #0969DA;
+}
+
+.commit-date{
+    font-style: italic;
 }
 
 .commit-item{

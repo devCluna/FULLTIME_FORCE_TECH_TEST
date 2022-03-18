@@ -25,7 +25,10 @@ const Header = () => {
               <p>joaquin</p>
             </div>
         </div>
-        <div className="userInfo-holder">
+        <div className="userInfo-holder" onClick={()=>{
+          window.open(`https://github.com/${user.login}`, '_blank')
+          console.log("dalas")
+        }}>
             <img className='userImg' src={user.avatar_url}/>
             <div className="userInfo"> 
                 <p>{user.name}</p>

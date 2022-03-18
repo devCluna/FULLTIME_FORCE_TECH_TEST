@@ -1,24 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import './Sidebar.css'
 import {BiBookBookmark} from 'react-icons/bi'
-import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchRepos } from '../../redux/listRepo/listReposActions'
+import { pickRepo } from '../../redux/selectedRepo/selectedRepoActions'
 
 const Sidebar = () => {
-    
-    const [repos, setRepos] = useState([])
+    const listRepos = useSelector(state => state.listRepos.repos)
+    const dispatch = useDispatch()
+
     useEffect(()=>{
-        axios.get("https://api.github.com/users/devCluna/repos")
-            .then(item =>{
-                setRepos(item.data)
-            })
+        dispatch(fetchRepos())
     },[])
 
   return (
     <div className='sidebar'>
         <p>Repositories</p>
         <div className='repo-holder'>
-            {repos?.map(repo => (
-                <div key={repo.id} className='repo-item'>
+            {listRepos?.map(repo => (
+                <div key={repo.id} className='repo-item' onClick={()=>(
+                    dispatch(pickRepo(repo))
+                )}>
                     <div className='repo-icon'>
                         <BiBookBookmark />
                     </div>

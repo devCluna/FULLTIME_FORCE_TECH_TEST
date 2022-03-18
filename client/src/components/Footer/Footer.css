@@ -31,8 +31,22 @@
    cursor: pointer;
 }
 
+.supporter a {
+    color: #0969DA;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.supporter-icon:hover{
+    color: #0969DA;
+}
+
 .logo1{
     font-size: 45px;
+}
+
+.logo1:hover{
+    color: #0969DA;
 }
 .logo2{
    width: 40px;

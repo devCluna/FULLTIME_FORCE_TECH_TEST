@@ -16,8 +16,10 @@ const Header = () => {
 
   return (
     <div className='header'>
-        <FaBars className='menu-icon menu-bar'/>
-        <SiGithub className='menu-icon menu-logo'/>
+        <FaBars className='menu-icon menu-bar' />
+        <SiGithub className='menu-icon menu-logo' onClick={()=>{
+          window.open(`https://github.com`, '_blank')
+        }}/>
         <div className='input-holder'>
             <input className='input-header' placeholder="Search by username"/>
             <div className='search-results'>
@@ -27,7 +29,6 @@ const Header = () => {
         </div>
         <div className="userInfo-holder" onClick={()=>{
           window.open(`https://github.com/${user.login}`, '_blank')
-          console.log("dalas")
         }}>
             <img className='userImg' src={user.avatar_url}/>
             <div className="userInfo"> 

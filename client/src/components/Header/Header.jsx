@@ -29,7 +29,7 @@ const Header = () => {
             <img className='userImg' src={user.avatar_url}/>
             <div className="userInfo"> 
                 <p>{user.name}</p>
-                <p>@{user.login}</p>
+                <p className='user-email'>@{user.login}</p>
             </div>
         </div>
     </div>

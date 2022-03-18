@@ -43,7 +43,7 @@ const Repos = () => {
     .then(item =>{
       setBranches(item.data)
       // console.log(item.data[item.data.length-1].commit.url)
-      axios.get('https://api.github.com/repos/devcluna/FULLTIME_FORCE_TECH_TEST/commits?sha=9e91f3aa865b6c06f0215f989cec577310293f35&per_page=100')
+      axios.get('https://api.github.com/repos/devcluna/FULLTIME_FORCE_TECH_TEST/commits?sha=d6fc5ba1cc13450e0785ffbdd4db1871fea4cdfd&per_page=100')
         .then(res =>{
           setCommits(res.data)
         })

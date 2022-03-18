@@ -1,5 +1,6 @@
 .footer{
     display: grid;
+    background-color: rgb(255, 255, 255);
     height: 10vh;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;

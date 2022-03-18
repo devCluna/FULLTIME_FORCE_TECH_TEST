@@ -37,7 +37,6 @@ const Repos = () => {
     axios.get('https://api.github.com/repos/devCluna/FULLTIME_FORCE_TECH_TEST')
     .then(item =>{
       setRepo(item.data)
-      console.log(item.data)
     })
 
     axios.get('https://api.github.com/repos/devcluna/FULLTIME_FORCE_TECH_TEST/branches')
@@ -65,7 +64,7 @@ const Repos = () => {
     <div className="repos">
       <h3 className="section-repos-title">Selected Repo</h3>
       <div className="repos-item">
-        <a className="repo-title">{repo.full_name}</a>
+        <a className="repo-title" href={repo.html_url} target="_blank">{repo.full_name}</a>
         <span className="repo-description">{repo.description ? repo.description :'No description provided' }</span>
         <span className='repo-date-label'>created at: <span className='repo-date'>{repo.created_at && getDate(new Date(repo.created_at))}</span></span>
         <span className='repo-date-label'>updated at: <span className='repo-date'>{repo.updated_at && getDate(new Date(repo.updated_at))}</span></span>
@@ -94,10 +93,10 @@ const Repos = () => {
       <div className="commits">
         {commits?.map(commit =>(
           <div key={commit.node_id} className="commit-item">
-            <div className="commit-description">{commit.commit.message}</div>
+            <a className="commit-description" href={commit.html_url} target="_blank">{commit.commit.message}</a>
             <div className="commit-details">
               <img className="commit-author" src={commit.author.avatar_url} />
-              <span>commited {getHours(commit.commit.committer.date, new Date)} ago</span>
+              <span className="commit-date">commited {getHours(commit.commit.committer.date, new Date)} ago</span>
             </div>
         </div>
         ))}

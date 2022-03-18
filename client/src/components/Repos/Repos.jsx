@@ -2,11 +2,54 @@ import React, { useEffect, useRef, useState } from 'react'
 import './Repos.css'
 import {TiArrowSortedUp} from 'react-icons/ti'
 import {TiArrowSortedDown} from 'react-icons/ti'
-import profileImg from '../../assets/profile.jpg'
+import axios from 'axios'
 
 const Repos = () => {
   const selectorRef = useRef()
+  const [repo, setRepo] = useState({})
   const [toggleBranch, setToggleBranch] = useState(false)
+  const [branches, setBranches] = useState([])
+  const [commits, setCommits] = useState([])
+
+  const getHours = (postDate, currentDate) => {
+    const milliseconds = Math.abs(currentDate - new Date(postDate))
+    const hours = milliseconds /36e5
+     return hours < 1 ? `${Math.floor(hours * 60)} minutes`  : `${Math.round(hours)} hours`
+  }
+
+  const getDate=(date) => {
+
+    let day = date.getDate()
+    let month = date.getMonth() + 1
+    let year = date.getFullYear()
+    let newDate = ""
+
+    if(month < 10){
+      newDate = `${day}-0${month}-${year}`
+    }else{
+      newDate = `${day}-${month}-${year}`
+    }
+
+   return newDate
+  }
+
+  useEffect(()=>{
+    axios.get('https://api.github.com/repos/devCluna/FULLTIME_FORCE_TECH_TEST')
+    .then(item =>{
+      setRepo(item.data)
+      console.log(item.data)
+    })
+
+    axios.get('https://api.github.com/repos/devcluna/FULLTIME_FORCE_TECH_TEST/branches')
+    .then(item =>{
+      setBranches(item.data)
+      // console.log(item.data[item.data.length-1].commit.url)
+      axios.get('https://api.github.com/repos/devcluna/FULLTIME_FORCE_TECH_TEST/commits?sha=0e013cce23a6f1b9ea1ee901563e2cfe963f5159&per_page=50')
+        .then(res =>{
+          setCommits(res.data)
+        })
+    })
+  },[])
 
   useEffect(()=>{
     const closeSelector= (e) => {
@@ -22,13 +65,14 @@ const Repos = () => {
     <div className="repos">
       <h3 className="section-repos-title">Selected Repo</h3>
       <div className="repos-item">
-        <a className="repo-title">Repo Name</a>
-        <span className="repo-description">Repo Description</span>
+        <a className="repo-title">{repo.full_name}</a>
+        <span className="repo-description">{repo.description ? repo.description :'No description provided' }</span>
+        <span className='repo-date-label'>created at: <span className='repo-date'>{repo.created_at && getDate(new Date(repo.created_at))}</span></span>
+        <span className='repo-date-label'>updated at: <span className='repo-date'>{repo.updated_at && getDate(new Date(repo.updated_at))}</span></span>
         <div className="techs-stacks">
-          <span>react</span>
-          <span>css</span>
-          <span>css</span>
-          <span>css</span>
+          {repo.topics?.map(topic=>(
+            <span>{topic}</span>
+          ))}
         </div>
       </div>
 
@@ -40,61 +84,23 @@ const Repos = () => {
         </div>
         {toggleBranch && (
           <div className="branch-options">
-            <div>development</div>
-            <div>production</div>
-            <div>api</div>
+            {branches?.map(branch => (
+              <div>{branch.name}</div>
+            ))}
           </div>
         )}
       </div>
 
       <div className="commits">
-        <div className="commit-item">
-          <div className="commit-description">Commit Description</div>
-          <div className="commit-details">
-            <img className="commit-author" src={profileImg} />
-            <span>commited 11 hours</span>
-          </div>
+        {commits?.map(commit =>(
+          <div key={commit.node_id} className="commit-item">
+            <div className="commit-description">{commit.commit.message}</div>
+            <div className="commit-details">
+              <img className="commit-author" src={commit.author.avatar_url} />
+              <span>commited {getHours(commit.commit.committer.date, new Date)} ago</span>
+            </div>
         </div>
-
-        <div className="commit-item">
-          <div className="commit-description">Commit Description</div>
-          <div className="commit-details">
-            <img className="commit-author" src={profileImg} />
-            <span>commited 11 hours</span>
-          </div>
-        </div>
-
-        <div className="commit-item">
-          <div className="commit-description">Commit Description</div>
-          <div className="commit-details">
-            <img className="commit-author" src={profileImg} />
-            <span>commited 11 hours</span>
-          </div>
-        </div>
-
-        <div className="commit-item">
-          <div className="commit-description">Commit Description</div>
-          <div className="commit-details">
-            <img className="commit-author" src={profileImg} />
-            <span>commited 11 hours</span>
-          </div>
-        </div>
-
-        <div className="commit-item">
-          <div className="commit-description">Commit Description</div>
-          <div className="commit-details">
-            <img className="commit-author" src={profileImg} />
-            <span>commited 11 hours</span>
-          </div>
-        </div>
-
-        <div className="commit-item">
-          <div className="commit-description">Commit Description</div>
-          <div className="commit-details">
-            <img className="commit-author" src={profileImg} />
-            <span>commited 11 hours</span>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

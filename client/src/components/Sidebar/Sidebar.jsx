@@ -1,26 +1,24 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './Sidebar.css'
 import {BiBookBookmark} from 'react-icons/bi'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchRepos } from '../../redux/listRepo/listReposActions'
-import { pickRepo } from '../../redux/selectedRepo/selectedRepoActions'
+import { selectUserRepo, selectUserRepoFail } from '../../redux/userInfo/userInfoActions'
+import { toggleSidebarMenu } from '../../redux/navigation/navActions'
 
 const Sidebar = () => {
-    const listRepos = useSelector(state => state.listRepos.repos)
+    const user = useSelector(state => state.userInfo.user)
+    const nav = useSelector(state=> state.nav)
     const dispatch = useDispatch()
 
-    useEffect(()=>{
-        dispatch(fetchRepos())
-    },[])
-
   return (
-    <div className='sidebar'>
+    <div className={nav ? 'sidebar menu-active' : 'sidebar'}>
         <p>Repositories</p>
         <div className='repo-holder'>
-            {listRepos?.map(repo => (
-                <div key={repo.id} className='repo-item' onClick={()=>(
-                    dispatch(pickRepo(repo))
-                )}>
+            {user?.repos?.map(repo => (
+                <div key={repo.id} className='repo-item' onClick={()=>{
+                    dispatch(selectUserRepo(repo.owner.login, repo.name))
+                    dispatch(toggleSidebarMenu())
+                }}>
                     <div className='repo-icon'>
                         <BiBookBookmark />
                     </div>

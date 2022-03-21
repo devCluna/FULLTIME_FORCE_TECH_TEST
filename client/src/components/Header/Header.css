@@ -33,7 +33,7 @@
 }
 
 .search-results{
-    display: none;
+    /* display: none; */
     position: absolute;
     width: 100%;
     font-size: 15px;
@@ -42,6 +42,7 @@
     background-color: #fff;
     color: #fff;
     border: 1px solid #57606A;
+    z-index: 10;
     
 }
 

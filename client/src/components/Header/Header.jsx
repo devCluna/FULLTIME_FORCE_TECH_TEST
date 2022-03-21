@@ -18,7 +18,7 @@ const Header = () => {
 
   useEffect(()=>{
       if(inputSearch !== ''){
-        axios.get(`${import.meta.env.VITE_APP_URI}searchUser/${inputSearch}`)
+        axios.get(`${import.meta.env.VITE_APP_URI}api/searchUser/${inputSearch}`)
         .then(response => {
           setResults(response.data.items)
         })

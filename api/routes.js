@@ -2,6 +2,9 @@ const express = require('express')
 const router = express.Router()
 const axios =require('axios')
 const auth = require('./auth')
+const dotenv = require('dotenv')
+
+dotenv.config();
 
  //User boilerplate
 let userInfo = {
@@ -11,7 +14,7 @@ let userInfo = {
 //Search User
 router.get("/searchUser/:username", (req, res) => {
     const { username } = req.params;
-    axios.get(`https://api.github.com/search/users?q=${username}repos:%3E5&per_page=6`, auth).then((response) => {
+    axios.get(`https://api.github.com/search/users?q=${username}+repos:%3E5&per_page=6`, auth).then((response) => {
       res.json(response.data);
     });
 });
@@ -101,4 +104,4 @@ router.get("/selectBranch/:username/:repo/:selectedBranch", (req, res) => {
 });
     
     
-    module.exports = router
+module.exports = router

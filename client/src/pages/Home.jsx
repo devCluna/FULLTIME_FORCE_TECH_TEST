@@ -6,7 +6,9 @@ import Body from '../components/Body/Body'
 const Home = () => {
   return (
     <div>
-        <Header/>
+      <Header/>
+      <Body/>
+      <Footer/>
     </div>
   )
 }

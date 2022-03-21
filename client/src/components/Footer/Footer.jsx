@@ -24,9 +24,9 @@ const Footer = () => {
       <div className='supporter' onClick={()=>{
           window.open("https://devCluna.com",'_blank')
         }}>
-          <a href='https://devCluna.com'>
+          <p>
           @devCluna
-          </a>
+          </p>
       </div>
     </div>
 

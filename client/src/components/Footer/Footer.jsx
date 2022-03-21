@@ -7,9 +7,9 @@ import {BsTwitter} from 'react-icons/bs'
 import {BsGithub} from 'react-icons/bs'
 
 const Footer = () => {
+  
   return (
     <div className='footer'>
-
     <div className='support-holder'>
       <div className='support-tag'>Supported by</div>
       <div className='supporter'>

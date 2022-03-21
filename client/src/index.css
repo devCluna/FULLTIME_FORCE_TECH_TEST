@@ -4,6 +4,28 @@
   padding: 0;
 }
 
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #0969DA #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #ffffff ;
+    border-radius: 36px;
+    border: 14px solid #0969DA ;
+  }
+
 body {
   margin: 0;
   padding: 0;

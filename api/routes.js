@@ -25,17 +25,13 @@ router.get("/getInfo/:username", (req, res) => {
   const { username } = req.params;
 
   //Search by username
-  axios.get(`https://api.github.com/users/${username}?access_token=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`, auth).then((response) => {
+  axios.get(`https://api.github.com/users/${username}`, auth).then((response) => {
     userInfo.user = response.data;
     //Search repos
     axios.get(`https://api.github.com/users/${username}/repos`, auth).then((response) => {
       userInfo.repos = response.data;
-      if(userInfo.repos.some(repo => repo.id === 470768911)){
-       const filteredRepo = userInfo.repos.filter(repo => repo.id=== 470768911)
-       userInfo.selectedRepo = filteredRepo
-      }else{
-        userInfo.selectedRepo = response.data[0];
-      }
+      userInfo.selectedRepo = response.data[3];
+     
       //Get Branches
       axios.get(`https://api.github.com/repos/${username}/${userInfo.selectedRepo.name}/branches`, auth).then((response) => {
         userInfo.branches = response.data;

@@ -1,0 +1,144 @@
+.repos{
+    padding: 0.5em;
+    height: 79vh;
+    width: 100%;
+    overflow: auto;
+}
+
+.section-repos-title{
+    font-style: italic;
+    user-select: none;
+    margin-bottom: 0.2em;
+    margin-left: 0.2em;
+}
+
+.repos-item{
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.8em;
+    border: 1px solid #D0D7DE;
+    border-radius: 6px;
+    margin-bottom: 0.8em;
+}
+
+.repo-title{
+    cursor: pointer;
+    font-weight: 600;
+    color: #0969DA;
+}
+
+.repo-description{
+    font-style: italic;
+    color: #57606A;
+    font-size: 14px;
+}
+
+.repo-date-label{
+    color:#0969DA;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.repo-date{
+    color: #57606A;
+    font-style: italic;
+    font-size: 14px;
+}
+
+.techs-stacks{
+    display: flex;
+    align-items: center;
+    margin-top: 0.4em;
+    color: #fff;
+}
+
+.techs-stacks span {
+    cursor: pointer;
+    display: flex;
+    margin-right: 0.5em;
+    background-color: #0969DA;
+    border-radius: 12px;
+    padding:0.05em 0.5em 0.2em 0.5em;
+}
+
+.branchs{
+    position: relative;
+    max-width: 180px;
+    margin-bottom: 0.5em;
+}
+
+.branch-selector{
+    display: flex;
+    padding: 0.5em;
+    justify-content: space-between;
+    align-items: center;
+    
+    background-color: #D0D7DE;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.branch-options{
+    width: 100%;
+    margin-top: 0.3em;
+    position: absolute;
+    max-width: 180px;
+    border-radius: 5px;
+    background-color: #D0D7DE;
+}
+
+.branch-options div{
+    cursor: pointer;
+    padding: 0.5em;   
+}
+
+.branch-options div:hover{
+    background-color: #0969DA;
+    border-radius: 5px;
+    color: #fff;
+    font-style: italic;
+}
+
+
+
+/* --------Commits--------- */
+.commits{
+    width: 100%;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.commit-description{
+    font-style: italic;
+    color: #0969DA;
+}
+
+.commit-date{
+    font-style: italic;
+}
+
+.commit-item{
+    cursor: pointer;
+    width: 100%;
+    padding: 0.5em 0.8em;
+    border-radius: 5px;
+    border: 1px solid #D0D7DE;
+}
+
+.commit-details{
+    display: flex;
+    align-items: center;
+    margin-top: 0.4em;
+}
+
+.commit-author{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 0.5em;
+}
+
+/* ---------------------------- */

@@ -1,15 +1,18 @@
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import './App.css'
-import Body from './components/Body/Body'
-import Footer from './components/Footer/Footer'
 import Home from './pages/Home'
+import { fetchUserInfo } from './redux/userInfo/userInfoActions'
 
 function App() {
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(fetchUserInfo('devCluna'))
+  },[])
 
   return (
     <div className="App">
       <Home/>
-      <Body/>
-      <Footer/>
     </div>
   )
 }

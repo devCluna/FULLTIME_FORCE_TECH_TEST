@@ -33,7 +33,7 @@
 }
 
 .search-results{
-    display: none;
+    /* display: none; */
     position: absolute;
     width: 100%;
     font-size: 15px;
@@ -42,6 +42,7 @@
     background-color: #fff;
     color: #fff;
     border: 1px solid #57606A;
+    z-index: 10;
     
 }
 
@@ -71,6 +72,13 @@
 .userInfo p{
     cursor: pointer;
 }
+
+.user-email{
+    font-weight: lighter;
+    font-size: 14px;
+    font-style: italic;
+}
+
 .userImg{
     width: 35px;
     height: 35px;
@@ -82,12 +90,28 @@
     display: none;
 }
 
+.menu-logo{
+    display: none;
+}
+
 @media screen and (min-width: 800px){
 
     .userInfo{
         display: flex;
         flex-direction: column;
         margin-left:0.6em ;
+    }
+
+    .menu-bar{
+        display: none;
+    }
+
+    .menu-logo{
+        display: block;
+    }
+
+    .input-holder{
+        width: 50%;
     }
 }
 
@@ -105,4 +129,5 @@
     .input-holder{
         width: 50%;
     }
+
 }

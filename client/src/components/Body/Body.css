@@ -1,3 +1,4 @@
 .body{
-    height: 80vh;
+    display: flex;
+    height: 79.5vh;
 }

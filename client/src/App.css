@@ -1,8 +1,3 @@
-.App {
-
-}
-
-*{
-  box-sizing: 0;
-  margin: 0;
+.App{
+    position: relative;
 }

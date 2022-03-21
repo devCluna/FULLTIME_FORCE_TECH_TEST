@@ -55,17 +55,21 @@ router.get("/getInfo/:username", (req, res) => {
 router.get("/selectRepo/:username/:repo", (req, res) => {
     const { username, repo } = req.params;
 
+//Search by username
 axios.get(`https://api.github.com/users/${username}`, auth ).then((response) => {
     userInfo.user = response.data;
+    //Search by repos
     axios.get(`https://api.github.com/users/${username}/repos`, auth ).then((response) => {
     userInfo.repos = response.data;
+    //Search repo
     axios.get(`https://api.github.com/repos/${username}/${repo}`, auth ).then((response) => {
         userInfo.selectedRepo = response.data;
+        //Search branches
         axios.get(`https://api.github.com/repos/${username}/${repo}/branches`, auth ).then((response) => {
         userInfo.branches = response.data;
         userInfo.selectedBranch = response.data[0];
-        axios
-            .get(`https://api.github.com/repos/${username}/${repo}/commits?sha=${userInfo.branches[0].commit.sha}&per_page=100`, auth )
+        //Search commits     
+        axios.get(`https://api.github.com/repos/${username}/${repo}/commits?sha=${userInfo.branches[0].commit.sha}&per_page=100`, auth )
             .then((response) => {
             userInfo.commits = response.data;
             res.json(userInfo);

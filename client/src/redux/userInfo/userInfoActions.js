@@ -5,7 +5,7 @@ export const fetchUserInfo = (username) => {
   return (dispatch) => {
     dispatch(fetchUserInfoRequest());
     axios
-      .get(`${import.meta.env.VITE_APP_URI}getInfo/${username}`)
+      .get(`${import.meta.env.VITE_APP_URI}api/getInfo/${username}`)
       .then((response) => {
         dispatch(fetchUserInfoSuccess(response.data));
       })
@@ -19,7 +19,7 @@ export const selectUserRepo = (username, repo) =>{
   return (dispatch) => {
     dispatch(selectUserRepoRequest());
     axios
-      .get(`${import.meta.env.VITE_APP_URI}selectRepo/${username}/${repo}`)
+      .get(`${import.meta.env.VITE_APP_URI}api/selectRepo/${username}/${repo}`)
       .then((response) => {
         dispatch(selectUserRepoSuccess(response.data));
       })
@@ -33,7 +33,7 @@ export const selectBranch = (username, repo, selectBranch) =>{
   return (dispatch) => {
     dispatch(selectBranchRequest());
     axios
-      .get(`${import.meta.env.VITE_APP_URI}selectBranch/${username}/${repo}/${selectBranch}`)
+      .get(`${import.meta.env.VITE_APP_URI}api/selectBranch/${username}/${repo}/${selectBranch}`)
       .then((response) => {
         dispatch(selectBranchSuccess(response.data));
       })

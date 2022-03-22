@@ -22,5 +22,5 @@ app.use('/api', router)
 
 //server PORT
 app.listen(process.env.PORT || 4000, () => {
-  console.log("Listening on Port:", process.env.PORT);
+  console.log("Listening on Port:", process.env.PORT || 4000);
 });

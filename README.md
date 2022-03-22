@@ -85,7 +85,7 @@ The current stills in development, so the next updates will come with following 
 - [ ] User info modal
 - [ ] Repo contributors display
 
-See the [open issues](https://github.com/devCluna/FULLTIME_FORCE_TECH_TEST) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/devCluna/FULLTIME_FORCE_TECH_TEST/issues) for a list of proposed features (and known issues).
 
 ### Built With
 
@@ -124,14 +124,10 @@ To run this project on your local machine or deploy it to a server we need to us
 
 * ***Github ACCESS_TOKEN***
 
-  To get an access token we must first have a personal account on [Github](https://github.com)
+  To get an access token you must first have a personal account on [Github](https://github.com)
   and request an api token [(step by step guide)](https://docs.github.com/es/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
   
-  If you have problems with it I leave you a custom token to include it in your environment variables
-  
-  ```
-  GITHUB_TOKEN = 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
-  ```
+  Make sure to choose at least the following scopes:`repo:status`, ``public_repo``, ``repo_deployment``, ``read:user``, ``user:email``, ``user:follow``
 
 ### Run on Localhost 
 
@@ -141,27 +137,27 @@ To run this project on your local machine or deploy it to a server we need to us
    ```
 #### 2 Run api/
 
-2.1 Open a terminal of your choice, enter the root directory and change to `api/` directory
+  2.1 Open a terminal of your choice, enter the root directory and change to `api/` directory
    ```sh
    cd api/
    ```
 
-2.2 create a .env file and inside it include the following info
+  2.2 create a .env file and inside it include the following info
   ```sh
   //.env file
   GITHUB_TOKEN = <YOUR_ACCESS_TOKEN>
   ```
 
-2.3 Install the dependencies
+  2.3 Install the dependencies
   ```sh
   yarn install
   ```
-2.4 Run the scripts
+  2.4 Run the scripts
   ```sh
   yarn start
   ```
 #### 3 Run client/
-3.1 Open a terminal of your choice, enter the root directory and change to `client/` directory
+  3.1 Open a terminal of your choice, enter the root directory and change to `client/` directory
 
   ```
   cd client/

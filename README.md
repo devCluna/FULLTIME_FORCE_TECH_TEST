@@ -130,7 +130,7 @@ To run this project on your local machine or deploy it to a server we need to us
   If you have problems with it I leave you a custom token to include it in your environment variables
   
   ```
-  GITHUB_TOKEN = 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
+  GITHUB_TOKEN = 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
   ```
 
 ### Run on Localhost 

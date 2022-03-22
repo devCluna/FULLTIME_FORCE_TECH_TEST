@@ -82,6 +82,7 @@ The current stills in development, so the next updates will come with following 
 - [x] Select repo
 - [x] Select branch 
 - [x] Commits display
+- [ ] Commits pagination
 - [ ] User info modal
 - [ ] Repo contributors display
 

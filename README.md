@@ -222,6 +222,6 @@ Distributed under the MIT License. See [LICENSE](https://github.com/devCluna/FUL
 [license-url]: https://github.com/TribilinYT/dolla-react-responsive-frontpage-devcluna/blob/master/LICENSE
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/cluna1997/
+[linkedin-url]: https://www.linkedin.com/in/devcluna/
 
 [product-screenshot]: assets/homepage.png
